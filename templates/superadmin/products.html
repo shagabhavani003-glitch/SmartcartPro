@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+<h2>All Products</h2>
+
+<table class="table table-bordered mt-3">
+<thead>
+<tr>
+    <th>#ID</th>
+    <th>Name</th>
+    <th>Price (₹)</th>
+    <th>Added By (Admin)</th>
+    
+    
+</tr>
+</thead>
+
+<tbody>
+{% for product in products %}
+<tr>
+    <td>{{ product.product_id }}</td>
+    <td>{{ product.product_name }}</td>
+    <td>{{ product.price }}</td>
+    <td>{{ product.admin_name or 'N/A' }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+<a href="/superadmin-dashboard" class="btn btn-dark">Back</a>
+
+</div>
+
+{% endblock %}

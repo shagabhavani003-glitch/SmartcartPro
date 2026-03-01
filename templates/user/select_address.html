@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}Select Address{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+  <div class="col-md-8">
+
+    <div class="card shadow-sm">
+      <div class="card-body">
+
+        <h4 class="mb-4 text-center">Select Delivery Address</h4>
+
+        {% if addresses %}
+
+            {% for address in addresses %}
+            <div class="border rounded p-3 mb-3">
+
+                <h6>{{ address.full_name }} ({{ address.phone }})</h6>
+
+                <p class="mb-2">
+                    {{ address.house_no }},
+                    {{ address.street }},
+                    {{ address.city }},
+                    {{ address.state }} -
+                    {{ address.pincode }}
+                </p>
+
+                <a href="{{ url_for('confirm_address', address_id=address.address_id) }}"
+   class="btn btn-primary btn-sm">
+   Deliver to this Address
+</a>
+            </div>
+            {% endfor %}
+
+        {% else %}
+
+            <div class="alert alert-info text-center">
+                No saved addresses found.
+            </div>
+
+        {% endif %}
+
+        <div class="text-center mt-3">
+            <a href="{{ url_for('add_address') }}" class="btn btn-primary">
+    + Add New Address
+</a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}
