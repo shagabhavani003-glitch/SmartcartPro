@@ -52,7 +52,7 @@
 
         <td>₹{{ item.price }}</td>
 
-        <td>
+        <!-- <td>
             <a href="/user/cart/decrease/{{ pid }}"
                class="btn btn-sm btn-outline-secondary">-</a>
 
@@ -60,7 +60,20 @@
 
             <a href="/user/cart/increase/{{ pid }}"
                class="btn btn-sm btn-outline-secondary">+</a>
-        </td>
+        </td> -->
+        <td>
+    <div class="d-flex justify-content-center align-items-center gap-2">
+
+        <a href="/user/cart/decrease/{{ pid }}"
+           class="btn btn-outline-danger qty-btn">−</a>
+
+        <span class="fw-bold fs-5">{{ item.quantity }}</span>
+
+        <a href="/user/cart/increase/{{ pid }}"
+           class="btn btn-outline-success qty-btn">+</a>
+
+    </div>
+</td>
 
         <td class="fw-bold">
             ₹{{ item.price * item.quantity }}
